@@ -1,5 +1,5 @@
 #!/bin/bash -x
-# Script to fetch nginx statuses for tribily monitoring systems
+# Script to fetch Postfix statuses for tribily monitoring systems
 # Initial Author: Zabbix Community
 # Improvements, Features, Testing: krish@toonheart.com
 # License: GPLv2

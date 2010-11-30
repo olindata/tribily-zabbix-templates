@@ -4,10 +4,9 @@
 # License: GPLv2
 
 # Set Variables
-IPADDR=192.168.1.4
-PORT=8010
+IPADDR="192.168.1.4"
+PORT="8010"
 DATE=`date +%Y%m%d`
-LOG="/var/log/zabbix/haproxy_status.log"
 cd /opt/tribily/bin/
 wget $IPADDR:$PORT/haproxy?stats/\;csv -O haproxy_stats_$DATE.csv -o /dev/null
 FILE="/opt/tribily/bin/haproxy_stats_$DATE.csv"
@@ -103,8 +102,27 @@ function warn_redis {
 	}
 
 
+# Downtime Information
+#
+function down_cur {
+
+	STATUS=`grep "$POOL1" $FILE | grep BACKEND | cut -f18 -d,`
+	
+	if [ "$STATUS" == "DOWN" ]
+	then
+		grep "$POOL1" $FILE | grep BACKEND | cut -f24 -d,
+	else
+		echo "0"	
+	fi
+	}
+
+function down_tot {
+	grep "$POOL1" $FILE | grep BACKEND | cut -f25 -d,
+	}
+
 
 # Run the requested function
 $1
 
-
+# Clean up
+/bin/rm $FILE

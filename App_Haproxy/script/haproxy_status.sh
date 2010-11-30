@@ -65,6 +65,45 @@ function bend_stot {
 	grep "$POOL1" $FILE | grep BACKEND | cut -f8 -d,
 	}
 
+
+# Traffic Information
+#
+function bytes_in {
+	grep "$POOL1" $FILE | grep FRONTEND | cut -f9 -d,
+	}
+
+function bytes_out {
+	grep "$POOL1" $FILE | grep FRONTEND | cut -f10 -d,
+	}
+
+
+# Error Information
+#
+function err_req {
+	grep "$POOL1" $FILE | grep FRONTEND | cut -f13 -d,
+	}
+
+function err_conn {
+	grep "$POOL1" $FILE | grep BACKEND | cut -f14 -d,
+	}
+
+function err_resp {
+	grep "$POOL1" $FILE | grep BACKEND | cut -f15 -d,
+	}
+
+
+# Warning Information
+#
+function warn_retr {
+	grep "$POOL1" $FILE | grep BACKEND | cut -f16 -d,
+	}
+
+function warn_redis {
+	grep "$POOL1" $FILE | grep BACKEND | cut -f17 -d,
+	}
+
+
+
 # Run the requested function
 $1
 

@@ -7,9 +7,11 @@
 IPADDR="192.168.1.4"
 PORT="8010"
 DATE=`date +%Y%m%d`
-cd /opt/tribily/bin/
+#cd /opt/tribily/bin/
+cd /tmp/
 wget $IPADDR:$PORT/haproxy?stats/\;csv -O haproxy_stats_$DATE.csv -o /dev/null
-FILE="/opt/tribily/bin/haproxy_stats_$DATE.csv"
+#FILE="/opt/tribily/bin/haproxy_stats_$DATE.csv"
+FILE="/tmp/haproxy_stats_$DATE.csv"
 
 # User Defined Pools on HA
 POOL1="GALAXY"
@@ -120,6 +122,20 @@ function down_tot {
 	grep "$POOL1" $FILE | grep BACKEND | cut -f25 -d,
 	}
 
+
+# Uptime Information
+#
+function uptime_cur {
+
+	STATUS=`grep "$POOL1" $FILE | grep BACKEND | cut -f18 -d,`
+	
+	if [ "$STATUS" == "UP" ]
+	then
+		grep "$POOL1" $FILE | grep BACKEND | cut -f24 -d,
+	else
+		echo "0"	
+	fi
+	}
 
 # Run the requested function
 $1

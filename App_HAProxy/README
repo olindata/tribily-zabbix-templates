@@ -1,0 +1,23 @@
+# Append these User Parameters in /etc/zabbix/zabbix_agentd.conf for HAProxy
+
+UserParameter=haproxy.fend_status,/opt/tribily/bin/haproxy_status.sh fend_status
+UserParameter=haproxy.bend_status,/opt/tribily/bin/haproxy_status.sh bend_status
+UserParameter=haproxy.qcur,/opt/tribily/bin/haproxy_status.sh qcur
+UserParameter=haproxy.qmax,/opt/tribily/bin/haproxy_status.sh qmax 
+UserParameter=haproxy.fend_scur,/opt/tribily/bin/haproxy_status.sh fend_scur 
+UserParameter=haproxy.fend_smax,/opt/tribily/bin/haproxy_status.sh fend_smax 
+UserParameter=haproxy.bend_scur,/opt/tribily/bin/haproxy_status.sh bend_scur 
+UserParameter=haproxy.bend_smax,/opt/tribily/bin/haproxy_status.sh bend_smax 
+UserParameter=haproxy.fend_stot,/opt/tribily/bin/haproxy_status.sh fend_stot
+UserParameter=haproxy.bend_stot,/opt/tribily/bin/haproxy_status.sh bend_stot
+UserParameter=haproxy.bytes_in,/opt/tribily/bin/haproxy_status.sh bytes_in 
+UserParameter=haproxy.bytes_out,/opt/tribily/bin/haproxy_status.sh bytes_out 
+UserParameter=haproxy.err_req,/opt/tribily/bin/haproxy_status.sh err_req 
+UserParameter=haproxy.err_conn,/opt/tribily/bin/haproxy_status.sh err_conn 
+UserParameter=haproxy.err_resp,/opt/tribily/bin/haproxy_status.sh err_resp 
+UserParameter=haproxy.warn_retr,/opt/tribily/bin/haproxy_status.sh warn_retr 
+UserParameter=haproxy.warn_redis,/opt/tribily/bin/haproxy_status.sh warn_redis 
+UserParameter=haproxy.down_cur,/opt/tribily/bin/haproxy_status.sh down_cur
+UserParameter=haproxy.uptime_cur,/opt/tribily/bin/haproxy_status.sh uptime_cur 
+UserParameter=haproxy.down_tot,/opt/tribily/bin/haproxy_status.sh down_tot 
+

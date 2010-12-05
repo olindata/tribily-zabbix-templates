@@ -1,5 +1,18 @@
-# Append these User Parameters in /etc/zabbix/zabbix_agentd.conf for HAProxy
+Monitor your HAProxy server pool using Tribily Monitoring Systems
+Note: This works for 1 single pool for now.
 
+- To make use of HAProxy template you will need to
+	0. Configuring Agent
+	1. Install the monitoring script
+	2. Enable HAProxy monitoring on your server via Tribily
+
+
+
+0. Configure extended user parameters in agent configuration file
+
+Append the following lines to your agent configuration file ( ex: /etc/zabbix/zabbix_agentd.conf)
+
+# For HAProxy
 UserParameter=haproxy.fend_status,/opt/tribily/bin/haproxy_status.sh fend_status
 UserParameter=haproxy.bend_status,/opt/tribily/bin/haproxy_status.sh bend_status
 UserParameter=haproxy.qcur,/opt/tribily/bin/haproxy_status.sh qcur
@@ -20,4 +33,37 @@ UserParameter=haproxy.warn_redis,/opt/tribily/bin/haproxy_status.sh warn_redis
 UserParameter=haproxy.down_cur,/opt/tribily/bin/haproxy_status.sh down_cur
 UserParameter=haproxy.uptime_cur,/opt/tribily/bin/haproxy_status.sh uptime_cur 
 UserParameter=haproxy.down_tot,/opt/tribily/bin/haproxy_status.sh down_tot 
+
+
+
+2. Install the monitoring script
+(run as root or sudo)
+
+Create a isolated bin directory for tribily scripts
+# mkdir -p /opt/tribily/bin
+# cd /opt/tribily/bin
+
+Download the script
+# wget tribily.com/downloads/scripts/haproxy_status.sh
+
+Add execute permission
+# chmod +x haproxy_status.sh
+
+Change parameters according to your server
+# vi haproxy_status.sh
+and change the lines 7,8,17 with IPaddress, port and name of the pool respectively.
+IPADDR="192.168.1.4"
+PORT="8010"
+POOL1="GALAXY"
+
+
+Save the file and quit
+
+
+
+
+4. Enable HAProxy monitoring on your server via Tribily
+
+Request a Tribily administrator to allow HAProxy monitoring on your server by creating a ticket at http://redmine.tribily.com
+
 

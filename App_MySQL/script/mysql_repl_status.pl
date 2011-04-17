@@ -43,10 +43,20 @@ my $result = $sth->fetchrow_hashref() || die "Failed to fetch data\n";
 # Return values based on argument.
 #
 if ( $ARGV[0] eq "iorun" ) {
-        print $result->{'Slave_IO_Running'}."\n";
+        if ( $result->{'Slave_IO_Running'} eq "Yes" ) {
+                print "1"."\n";
+        }
+        else {
+                print "0"."\n";
+        }
 }
 elsif ( $ARGV[0] eq "sqlrun" ) {
-        print $result->{'Slave_SQL_Running'}."\n";
+        if ( $result->{'Slave_SQL_Running'} eq "Yes" ) {
+                print "1"."\n";
+        }
+        else {
+                print "0"."\n";
+        }
 }
 elsif ( $ARGV[0] eq "secbmaster" ) {
         print $result->{'Seconds_Behind_Master'}."\n";

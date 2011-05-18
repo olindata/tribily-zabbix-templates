@@ -4,8 +4,6 @@
 # License: GPLv2
 
 # Set Variables
-BKUP_DATE=`date +%Y%m%d`
-LOG="/var/log/zabbix/nginx_status.log"
 HOST="192.168.1.3"
 PORT="8080"
 

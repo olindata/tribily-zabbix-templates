@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zabbix_export version="1.0" date="27.10.10" time="02.29">
+<zabbix_export version="1.0" date="01.07.11" time="05.41">
   <hosts>
     <host name="Tpl_Tribily_App_Postfix_Extended_v1.0">
       <proxy_hostid>0</proxy_hostid>
@@ -20,7 +20,7 @@
       </groups>
       <triggers>
         <trigger>
-          <description>No New data received from {HOSTNAME} in last 60 minutes</description>
+          <description>No New Postfix data received from {HOSTNAME} in last 60 minutes</description>
           <type>0</type>
           <expression>{Tpl_Tribily_App_Postfix_Extended_v1.0:pfreceived.nodata(3600)}=1</expression>
           <url></url>

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script to fetch nginx statuses for tribily monitoring systems
-# Author: krish@toonheart.com
+# Author: krish@tribily.com
 # License: GPLv2
 
 # Set Variables

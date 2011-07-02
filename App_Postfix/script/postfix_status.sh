@@ -1,13 +1,13 @@
 #!/bin/bash -x
 # Script to fetch Postfix statuses for tribily monitoring systems
 # Initial Author: Zabbix Community
-# Improvements, Features, Testing: krish@toonheart.com
+# Improvements, Features, Testing: krish@tribily.com
 # License: GPLv2
 
 # Set Variables
 MAILLOG=/var/log/maillog
-MYLOG=~/tmp/zabbix-postfix.log
-DAT1=~/zabbix-postfix-offset.dat
+MYLOG=/tmp/zabbix-postfix.log
+DAT1=/tmp/zabbix-postfix-offset.dat
 DAT2=$(mktemp)
 PFLOGSUMM=/usr/local/sbin/pflogsumm.pl
 ZABBIX_CONF=/etc/zabbix/zabbix_agentd.conf

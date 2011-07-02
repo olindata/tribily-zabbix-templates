@@ -1,12 +1,12 @@
 #!/bin/bash -x
 # Script to fetch exim statuses for tribily monitoring systems 
-# Author: krish@toonheart.com
+# Author: krish@tribily.com
 # License: GPLv2
 
 # Set Variables
 EXIMLOG=/var/log/exim4/mainlog
-MYLOG=~/exim_status.log
-DAT1=~/exim-status-offset.dat
+MYLOG=/tmp/exim_status.log
+DAT1=/tmp/exim-status-offset.dat
 DAT2=$(mktemp)
 EXIMSTATS=/usr/sbin/eximstats
 ZABBIX_CONF=/etc/zabbix/zabbix_agentd.conf

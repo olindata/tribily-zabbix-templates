@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zabbix_export version="1.0" date="01.07.11" time="05.36">
+<zabbix_export version="1.0" date="15.09.11" time="09.19">
   <hosts>
     <host name="Tpl_Tribily_App_MySQL_Extended_v1.0">
       <proxy_hostid>0</proxy_hostid>
@@ -26,25 +26,25 @@
           <url></url>
           <status>0</status>
           <priority>5</priority>
-          <comments></comments>
+          <comments>The command 'mysqladmin ping' is failing. This generally indicates that the mysql server daemon is either not running at all or is having sever problems.</comments>
         </trigger>
         <trigger>
-          <description>{HOSTNAME} has just been restarted</description>
+          <description>MySQL daemon on {HOSTNAME} has just been restarted</description>
           <type>0</type>
           <expression>{Tpl_Tribily_App_MySQL_Extended_v1.0:mysql.uptime.last(0)}&lt;600</expression>
           <url></url>
           <status>0</status>
           <priority>1</priority>
-          <comments></comments>
+          <comments>The MySQL server daemon has just been restarted. This resets the mysql uptime, which in turn triggers this alert.</comments>
         </trigger>
         <trigger>
-          <description>Low free disk space on {HOSTNAME} volume $1</description>
+          <description>Free disk space is less than 1GB on {HOSTNAME} volume $1</description>
           <type>0</type>
-          <expression>{Tpl_Tribily_App_MySQL_Extended_v1.0:vfs.fs.size[{$MYSQL_ROOT},free].last(0)}&lt;1G</expression>
+          <expression>{Tpl_Tribily_App_MySQL_Extended_v1.0:vfs.fs.size[{$MYSQL_ROOT},free].last(0)}&lt;{$MIN_MYSQL_ROOT}</expression>
           <url></url>
           <status>0</status>
           <priority>4</priority>
-          <comments></comments>
+          <comments>There is less then 1GB of free space on your MySQL data partition. To run as optimal as possible and avoid crashing, MySQL should have more then enough disk space available.</comments>
         </trigger>
       </triggers>
       <items>
@@ -288,7 +288,7 @@
           <status>0</status>
           <data_type>0</data_type>
           <units>B</units>
-          <multiplier>1</multiplier>
+          <multiplier>0</multiplier>
           <delta>0</delta>
           <formula>1000</formula>
           <lastlogsize>0</lastlogsize>
@@ -361,6 +361,10 @@
         </graph>
       </graphs>
       <macros>
+        <macro>
+          <value>1G</value>
+          <name>{$MIN_MYSQL_ROOT}</name>
+        </macro>
         <macro>
           <value>/var/lib/mysql</value>
           <name>{$MYSQL_ROOT}</name>

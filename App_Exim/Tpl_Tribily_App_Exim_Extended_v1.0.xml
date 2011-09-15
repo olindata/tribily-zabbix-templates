@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zabbix_export version="1.0" date="01.07.11" time="05.23">
+<zabbix_export version="1.0" date="15.09.11" time="09.21">
   <hosts>
     <host name="Tpl_Tribily_App_Exim_Extended_v1.0">
       <proxy_hostid>0</proxy_hostid>
@@ -26,7 +26,7 @@
           <url></url>
           <status>0</status>
           <priority>4</priority>
-          <comments></comments>
+          <comments>The number of running processes called 'exim4' is 0. This indicates that the Exim server is not working appropriately.</comments>
         </trigger>
       </triggers>
       <items>

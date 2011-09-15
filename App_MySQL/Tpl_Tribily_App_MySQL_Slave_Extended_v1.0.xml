@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zabbix_export version="1.0" date="01.07.11" time="05.38">
+<zabbix_export version="1.0" date="15.09.11" time="09.00">
   <hosts>
     <host name="Tpl_Tribily_App_MySQL_Slave_Extended_v1.0">
       <proxy_hostid>0</proxy_hostid>
@@ -26,16 +26,16 @@
           <url></url>
           <status>0</status>
           <priority>4</priority>
-          <comments></comments>
+          <comments>The Slave IO thread is not running, this indicates that something is wrong with the mysql replication on this host.</comments>
         </trigger>
         <trigger>
-          <description>MySQL Slave SQL is Not Running on {HOSTNAME}</description>
+          <description>MySQL Slave {HOSTNAME} is more then 120s behind master</description>
           <type>0</type>
           <expression>{Tpl_Tribily_App_MySQL_Slave_Extended_v1.0:mysqlslave.secbmaster.last(0)}&gt;120</expression>
           <url></url>
           <status>0</status>
           <priority>4</priority>
-          <comments></comments>
+          <comments>The 'seconds behind master' value of this slave is more then 120s. This means the slave is behind, but it doesn't mean it's actually 120s behind it's master. It's more of an indication that the slave is lagging behind.</comments>
         </trigger>
         <trigger>
           <description>MySQL Slave SQL is Not Running on {HOSTNAME}</description>
@@ -44,7 +44,7 @@
           <url></url>
           <status>0</status>
           <priority>4</priority>
-          <comments></comments>
+          <comments>The Slave SQL thread is not running, this indicates that something is wrong with the mysql replication on this host.</comments>
         </trigger>
       </triggers>
       <items>

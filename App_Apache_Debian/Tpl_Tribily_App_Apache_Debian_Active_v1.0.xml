@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zabbix_export version="1.0" date="01.07.11" time="05.06">
+<zabbix_export version="1.0" date="15.09.11" time="09.25">
   <hosts>
     <host name="Tpl_Tribily_App_Apache_Debian_Active_v1.0">
       <proxy_hostid>0</proxy_hostid>
@@ -26,7 +26,7 @@
           <url></url>
           <status>0</status>
           <priority>3</priority>
-          <comments></comments>
+          <comments>The webserver has stopped responding to requests on port 80 on the 127.0.0.1 interface.</comments>
         </trigger>
         <trigger>
           <description>apache2 process is not running on {HOSTNAME}</description>
@@ -35,7 +35,7 @@
           <url></url>
           <status>0</status>
           <priority>3</priority>
-          <comments></comments>
+          <comments>The number of running processes called 'apache2' is 0. This indicates that the webserver is not working appropriately.</comments>
         </trigger>
         <trigger>
           <description>/etc/apache2/apache2.conf has been changed on {HOSTNAME}</description>
@@ -44,16 +44,7 @@
           <url></url>
           <status>0</status>
           <priority>1</priority>
-          <comments></comments>
-        </trigger>
-        <trigger>
-          <description>/usr/lib/apache2/mpm-worker/apache2 has been changed on {HOSTNAME}</description>
-          <type>0</type>
-          <expression>{Tpl_Tribily_App_Apache_Debian_Active_v1.0:vfs.file.cksum[/usr/lib/apache2/mpm-worker/apache2].diff(0)}&gt;0</expression>
-          <url></url>
-          <status>0</status>
-          <priority>1</priority>
-          <comments></comments>
+          <comments>The contents of the file '/etc/apache2/apache2.conf' have been changed. This file contains the main part of the apache server configuration.</comments>
         </trigger>
         <trigger>
           <description>/usr/sbin/apache2 has been changed on {HOSTNAME}</description>
@@ -62,175 +53,10 @@
           <url></url>
           <status>0</status>
           <priority>1</priority>
-          <comments></comments>
+          <comments>The checksum for the file '/usr/sbin/apache2' has been changed. This file is the binary of the apache2 webserver (actually it usually is a symlink, but that doesn't matter too much here). This normally happens when you install a new version of apache2.</comments>
         </trigger>
       </triggers>
       <items>
-        <item type="7" key="log[/var/log/httpd/access_log]" value_type="2">
-          <description>Log of $1</description>
-          <ipmi_sensor></ipmi_sensor>
-          <delay>30</delay>
-          <history>60</history>
-          <trends>365</trends>
-          <status>1</status>
-          <data_type>0</data_type>
-          <units></units>
-          <multiplier>0</multiplier>
-          <delta>0</delta>
-          <formula>1</formula>
-          <lastlogsize>0</lastlogsize>
-          <logtimefmt></logtimefmt>
-          <delay_flex></delay_flex>
-          <authtype>0</authtype>
-          <username></username>
-          <password></password>
-          <publickey></publickey>
-          <privatekey></privatekey>
-          <params></params>
-          <trapper_hosts></trapper_hosts>
-          <snmp_community>public</snmp_community>
-          <snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
-          <snmp_port>161</snmp_port>
-          <snmpv3_securityname></snmpv3_securityname>
-          <snmpv3_securitylevel>0</snmpv3_securitylevel>
-          <snmpv3_authpassphrase></snmpv3_authpassphrase>
-          <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <applications>
-            <application>HTTP</application>
-          </applications>
-        </item>
-        <item type="7" key="log[/var/log/httpd/error_log]" value_type="2">
-          <description>Log of $1</description>
-          <ipmi_sensor></ipmi_sensor>
-          <delay>30</delay>
-          <history>60</history>
-          <trends>365</trends>
-          <status>1</status>
-          <data_type>0</data_type>
-          <units></units>
-          <multiplier>0</multiplier>
-          <delta>0</delta>
-          <formula>1</formula>
-          <lastlogsize>0</lastlogsize>
-          <logtimefmt></logtimefmt>
-          <delay_flex></delay_flex>
-          <authtype>0</authtype>
-          <username></username>
-          <password></password>
-          <publickey></publickey>
-          <privatekey></privatekey>
-          <params></params>
-          <trapper_hosts></trapper_hosts>
-          <snmp_community>public</snmp_community>
-          <snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
-          <snmp_port>161</snmp_port>
-          <snmpv3_securityname></snmpv3_securityname>
-          <snmpv3_securitylevel>0</snmpv3_securitylevel>
-          <snmpv3_authpassphrase></snmpv3_authpassphrase>
-          <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <applications>
-            <application>HTTP</application>
-          </applications>
-        </item>
-        <item type="7" key="log[/var/log/httpd/ssl_access_log]" value_type="2">
-          <description>Log of $1</description>
-          <ipmi_sensor></ipmi_sensor>
-          <delay>30</delay>
-          <history>60</history>
-          <trends>365</trends>
-          <status>1</status>
-          <data_type>0</data_type>
-          <units></units>
-          <multiplier>0</multiplier>
-          <delta>0</delta>
-          <formula>1</formula>
-          <lastlogsize>0</lastlogsize>
-          <logtimefmt></logtimefmt>
-          <delay_flex></delay_flex>
-          <authtype>0</authtype>
-          <username></username>
-          <password></password>
-          <publickey></publickey>
-          <privatekey></privatekey>
-          <params></params>
-          <trapper_hosts></trapper_hosts>
-          <snmp_community>public</snmp_community>
-          <snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
-          <snmp_port>161</snmp_port>
-          <snmpv3_securityname></snmpv3_securityname>
-          <snmpv3_securitylevel>0</snmpv3_securitylevel>
-          <snmpv3_authpassphrase></snmpv3_authpassphrase>
-          <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <applications>
-            <application>HTTP</application>
-          </applications>
-        </item>
-        <item type="7" key="log[/var/log/httpd/ssl_error_log]" value_type="2">
-          <description>Log of $1</description>
-          <ipmi_sensor></ipmi_sensor>
-          <delay>30</delay>
-          <history>60</history>
-          <trends>365</trends>
-          <status>1</status>
-          <data_type>0</data_type>
-          <units></units>
-          <multiplier>0</multiplier>
-          <delta>0</delta>
-          <formula>1</formula>
-          <lastlogsize>0</lastlogsize>
-          <logtimefmt></logtimefmt>
-          <delay_flex></delay_flex>
-          <authtype>0</authtype>
-          <username></username>
-          <password></password>
-          <publickey></publickey>
-          <privatekey></privatekey>
-          <params></params>
-          <trapper_hosts></trapper_hosts>
-          <snmp_community>public</snmp_community>
-          <snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
-          <snmp_port>161</snmp_port>
-          <snmpv3_securityname></snmpv3_securityname>
-          <snmpv3_securitylevel>0</snmpv3_securitylevel>
-          <snmpv3_authpassphrase></snmpv3_authpassphrase>
-          <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <applications>
-            <application>HTTP</application>
-          </applications>
-        </item>
-        <item type="7" key="log[/var/log/httpd/ssl_request_log]" value_type="2">
-          <description>Log of $1</description>
-          <ipmi_sensor></ipmi_sensor>
-          <delay>30</delay>
-          <history>60</history>
-          <trends>365</trends>
-          <status>1</status>
-          <data_type>0</data_type>
-          <units></units>
-          <multiplier>0</multiplier>
-          <delta>0</delta>
-          <formula>1</formula>
-          <lastlogsize>0</lastlogsize>
-          <logtimefmt></logtimefmt>
-          <delay_flex></delay_flex>
-          <authtype>0</authtype>
-          <username></username>
-          <password></password>
-          <publickey></publickey>
-          <privatekey></privatekey>
-          <params></params>
-          <trapper_hosts></trapper_hosts>
-          <snmp_community>public</snmp_community>
-          <snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
-          <snmp_port>161</snmp_port>
-          <snmpv3_securityname></snmpv3_securityname>
-          <snmpv3_securitylevel>0</snmpv3_securitylevel>
-          <snmpv3_authpassphrase></snmpv3_authpassphrase>
-          <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <applications>
-            <application>HTTP</application>
-          </applications>
-        </item>
         <item type="7" key="net.tcp.service[http,127.0.0.1,]" value_type="3">
           <description>$1 service is running</description>
           <ipmi_sensor></ipmi_sensor>
@@ -331,39 +157,6 @@
           </applications>
         </item>
         <item type="7" key="vfs.file.cksum[/etc/apache2/apache2.conf]" value_type="3">
-          <description>Checksum of $1</description>
-          <ipmi_sensor></ipmi_sensor>
-          <delay>3600</delay>
-          <history>60</history>
-          <trends>365</trends>
-          <status>0</status>
-          <data_type>0</data_type>
-          <units></units>
-          <multiplier>0</multiplier>
-          <delta>0</delta>
-          <formula>1</formula>
-          <lastlogsize>0</lastlogsize>
-          <logtimefmt></logtimefmt>
-          <delay_flex></delay_flex>
-          <authtype>0</authtype>
-          <username></username>
-          <password></password>
-          <publickey></publickey>
-          <privatekey></privatekey>
-          <params></params>
-          <trapper_hosts></trapper_hosts>
-          <snmp_community></snmp_community>
-          <snmp_oid></snmp_oid>
-          <snmp_port>161</snmp_port>
-          <snmpv3_securityname></snmpv3_securityname>
-          <snmpv3_securitylevel>0</snmpv3_securitylevel>
-          <snmpv3_authpassphrase></snmpv3_authpassphrase>
-          <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <applications>
-            <application>HTTP</application>
-          </applications>
-        </item>
-        <item type="7" key="vfs.file.cksum[/usr/lib/apache2/mpm-worker/apache2]" value_type="3">
           <description>Checksum of $1</description>
           <ipmi_sensor></ipmi_sensor>
           <delay>3600</delay>

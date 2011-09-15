@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zabbix_export version="1.0" date="01.07.11" time="05.40">
+<zabbix_export version="1.0" date="15.09.11" time="08.59">
   <hosts>
     <host name="Tpl_Tribily_App_Nginx_Extended_v1.0">
       <proxy_hostid>0</proxy_hostid>
@@ -26,7 +26,7 @@
           <url></url>
           <status>0</status>
           <priority>4</priority>
-          <comments></comments>
+          <comments>The number of processes named 'nginx' that is running is currently 0. This indicates there's a problem with nginx.</comments>
         </trigger>
       </triggers>
       <items>

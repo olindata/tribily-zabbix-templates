@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zabbix_export version="1.0" date="01.07.11" time="05.48">
+<zabbix_export version="1.0" date="15.09.11" time="08.49">
   <hosts>
     <host name="Tpl_Tribily_App_TFTP_Active_v1.0">
       <proxy_hostid>0</proxy_hostid>
@@ -26,7 +26,7 @@
           <url></url>
           <status>0</status>
           <priority>3</priority>
-          <comments></comments>
+          <comments>The TFTP server is using more then 100M of memory, which indicates a high load.</comments>
         </trigger>
         <trigger>
           <description>TFTP or xinetd processes not running on server {HOSTNAME}</description>
@@ -35,7 +35,7 @@
           <url></url>
           <status>0</status>
           <priority>4</priority>
-          <comments></comments>
+          <comments>The number of processes named 'xinetd' that is running is currently 0. This might prevent the TFTP server from responding.</comments>
         </trigger>
         <trigger>
           <description>TFTP configuration has been changed on {HOSTNAME}</description>
@@ -44,7 +44,7 @@
           <url></url>
           <status>0</status>
           <priority>1</priority>
-          <comments></comments>
+          <comments>The contents of the file '/etc/xinetd.d/tftp' have been changed. This file contains the main part of the configuration of the TFTP server.</comments>
         </trigger>
         <trigger>
           <description>Low free disk space on {HOSTNAME} volume $1</description>
@@ -53,7 +53,7 @@
           <url></url>
           <status>0</status>
           <priority>4</priority>
-          <comments></comments>
+          <comments>The disk that your TFTP root is pointed at has a low amount of space left. This might cause problems for users uploading files.</comments>
         </trigger>
       </triggers>
       <items>

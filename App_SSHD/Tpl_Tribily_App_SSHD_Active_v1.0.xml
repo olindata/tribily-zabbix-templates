@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zabbix_export version="1.0" date="01.07.11" time="05.45">
+<zabbix_export version="1.0" date="15.09.11" time="08.52">
   <hosts>
     <host name="Tpl_Tribily_App_SSHD_Active_v1.0">
       <proxy_hostid>0</proxy_hostid>
@@ -26,7 +26,7 @@
           <url></url>
           <status>0</status>
           <priority>3</priority>
-          <comments></comments>
+          <comments>The number of processes named 'sshd' on this server is currently 0. This indicates that your ssh server might have crashed or has been shutdown.</comments>
         </trigger>
       </triggers>
       <items>

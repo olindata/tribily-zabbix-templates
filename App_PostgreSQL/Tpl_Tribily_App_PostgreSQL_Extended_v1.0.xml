@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zabbix_export version="1.0" date="01.07.11" time="05.43">
+<zabbix_export version="1.0" date="15.09.11" time="08.55">
   <hosts>
     <host name="Tpl_Tribily_App_PostgreSQL_Extended_v1.0">
       <proxy_hostid>0</proxy_hostid>
@@ -26,7 +26,7 @@
           <url></url>
           <status>0</status>
           <priority>5</priority>
-          <comments></comments>
+          <comments>The PostgreSQL server process is not running on this server, this might be because it has crashed.</comments>
         </trigger>
         <trigger>
           <description>No New Data received from PostgreSQL on {HOSTNAME} in last 10 minutes</description>
@@ -35,7 +35,7 @@
           <url></url>
           <status>0</status>
           <priority>5</priority>
-          <comments></comments>
+          <comments>We haven't received any PostgreSQL data from this machine for 10 minutes, which indicates something might be wrong with the PostgreSQL server.</comments>
         </trigger>
         <trigger>
           <description>Low free disk space on {HOSTNAME} volume $1</description>
@@ -44,7 +44,7 @@
           <url></url>
           <status>0</status>
           <priority>4</priority>
-          <comments></comments>
+          <comments>The filesystem that PostgreSQL is using for it's data files is almost full. Please free up some space to make sure PostgreSQL can keep functioning properly.</comments>
         </trigger>
       </triggers>
       <items>

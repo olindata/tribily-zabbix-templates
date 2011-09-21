@@ -1,60 +1,68 @@
 #!/bin/bash
 #
-#Dirty script for asterisk status made during testing
+# Script to fetch Asterisk status for tribily monitoring systems
+# Author: krish@tribily.com
+# License: GPLv2
+
+
 # Variables
 ZBX_SENDER=`which zabbix_sender`
 ZBX_CONF="/etc/zabbix/zabbix_agentd.conf"
 #
+
+function zsend {
+  $ZBX_SENDER -c $ZBX_CONF -k $1 -o $2
+}
+
+
 # General Stats
 
-$ZBX_SENDER -c $ZBX_CONF -k ast.pid -o `cat /var/run/asterisk/asterisk.pid`
-$ZBX_SENDER -c $ZBX_CONF -k ast.uptime -o `asterisk /usr/sbin/asterisk -rvvvvvx 'core show uptime' | grep uptime | cut -f2 -d: | sed 's/ //g'`
-$ZBX_SENDER -c $ZBX_CONF -k ast.reloadtime -o `asterisk /usr/sbin/asterisk -rvvvvvx 'core show uptime' | grep reload | cut -f2 -d: | sed 's/ //g'`
-$ZBX_SENDER -c $ZBX_CONF -k ast.version -o `asterisk /usr/sbin/asterisk -V | cut -f2 -d' '`
+zsend ast.pid `sudo -u zabbix sudo cat /var/run/asterisk/asterisk.pid`
+zsend ast.uptime `sudo -u zabbix sudo asterisk /usr/sbin/asterisk -rvvvvvx 'core show uptime' | grep uptime | cut -f2 -d: | sed 's/ //g'`
+zsend ast.reloadtime `sudo -u zabbix sudo asterisk /usr/sbin/asterisk -rvvvvvx 'core show uptime' | grep reload | cut -f2 -d: | sed 's/ //g'`
+zsend ast.version `sudo -u zabbix sudo asterisk /usr/sbin/asterisk -V | cut -f2 -d' '`
 
 
 # Core Stats
+# INFO: Active Calls is Buggy yet.
+#zsend ast.activecalls `sudo -u zabbix sudo asterisk /usr/sbin/asterisk -rvvvvvx 'core show calls'| grep -i 'active' | awk '{print $1}'`
+zsend ast.callsdone `sudo -u zabbix sudo asterisk /usr/sbin/asterisk -rvvvvvx 'core show calls'| grep -i 'processed' | awk '{print $1}'`
 
-$ZBX_SENDER -c $ZBX_CONF -k ast.activecalls -o `asterisk /usr/sbin/asterisk -rvvvvvx 'core show calls'| grep -i --text 'active' | awk '{print $1}'`
-$ZBX_SENDER -c $ZBX_CONF -k ast.callsdone -o `asterisk /usr/sbin/asterisk -rvvvvvx 'core show calls'| grep -i --text 'processed' | awk '{print $1}'`
 
 
 # IAX2 Stats
 
-$ZBX_SENDER -c $ZBX_CONF -k iax.status -o `asterisk /usr/sbin/asterisk -rvvvvvx 'iax2 show registry'|grep Registered |wc -l`
-$ZBX_SENDER -c $ZBX_CONF -k iax.channels -o `asterisk -rvvvvvx 'iax2 show channels'|grep --text -i 'active IAX channel'|awk '{print $1}'`
+zsend iax.status `sudo -u zabbix sudo asterisk /usr/sbin/asterisk -rvvvvvx 'iax2 show registry'|grep Registered |wc -l`
+zsend iax.channels `sudo -u zabbix sudo /usr/sbin/asterisk -rvvvvvx 'iax2 show channels'|grep --text -i 'active IAX channel'|awk '{print $1}'`
 
 
 
 # SIP Stats
 
-$ZBX_SENDER -c $ZBX_CONF -k sip.status -o `asterisk -rvvvvvx 'sip show registry'|grep Registered |wc -l`
-$ZBX_SENDER -c $ZBX_CONF -k sip.peersonline -o `asterisk -rvvvvvx 'sip show peers'|grep --text -i 'sip peers'|awk '{print $5}'`
-$ZBX_SENDER -c $ZBX_CONF -k sip.peersoffline -o `asterisk -rvvvvvx 'sip show peers'|grep --text -i 'sip peers'|awk '{print $7}'`
-$ZBX_SENDER -c $ZBX_CONF -k sip.peers -o `asterisk -rvvvvvx 'sip show peers'|grep --text -i 'sip peers'|awk '{print $1}'`
+zsend sip.status `sudo -u zabbix sudo /usr/sbin/asterisk -rvvvvvx 'sip show registry'|grep Registered |wc -l`
+zsend sip.peersonline `sudo -u zabbix sudo /usr/sbin/asterisk -rvvvvvx 'sip show peers'|grep --text -i 'sip peers'|awk '{print $5}'`
+zsend sip.peersoffline `sudo -u zabbix sudo /usr/sbin/asterisk -rvvvvvx 'sip show peers'|grep --text -i 'sip peers'|awk '{print $7}'`
+zsend sip.peers `sudo -u zabbix sudo /usr/sbin/asterisk -rvvvvvx 'sip show peers'|grep --text -i 'sip peers'|awk '{print $1}'`
 
 
 # DNS Manager
 
-$ZBX_SENDER -c $ZBX_CONF -k dns.status -o `asterisk -rvvvvvx 'dnsmgr status' | grep 'DNS Manager' | awk '{print $NF}'`
-$ZBX_SENDER -c $ZBX_CONF -k dns.entries -o `asterisk -rvvvvvx 'dnsmgr status' | grep 'Number of entries' | awk '{print $NF}`
-
-
+zsend dns.status `sudo -u zabbix sudo /usr/sbin/asterisk -rvvvvvx 'dnsmgr status' | grep 'DNS Manager' | awk '{print $NF}'`
+zsend dns.entries `sudo -u zabbix sudo /usr/sbin/asterisk -rvvvvvx 'dnsmgr status' | grep 'Number of entries' | awk '{print $NF}'`
 
 
 # FAX Stats
 
-$ZBX_SENDER -c $ZBX_CONF -k fax.sessions -o `asterisk -rvvvvvx 'fax show stats' | grep 'Current Sessions' | awk '{print $NF}'`
-$ZBX_SENDER -c $ZBX_CONF -k fax.transmits -o `asterisk -rvvvvvx 'Transmit Attempts' | grep 'Current Sessions' | awk '{print $NF}'`
-$ZBX_SENDER -c $ZBX_CONF -k fax.receive -o `asterisk -rvvvvvx 'Receive Attempts' | grep 'Current Sessions' | awk '{print $NF}'`
-$ZBX_SENDER -c $ZBX_CONF -k fax.done -o `asterisk -rvvvvvx 'Completed' | grep 'Current Sessions' | awk '{print $NF}'`
-$ZBX_SENDER -c $ZBX_CONF -k fax.fail -o `asterisk -rvvvvvx 'Failed' | grep 'Current Sessions' | awk '{print $NF}'`
-
+zsend fax.sessions `sudo -u zabbix sudo /usr/sbin/asterisk -rvvvvvx 'fax show stats' | grep 'Current Sessions' | awk '{print $NF}'`
+zsend fax.transmits `sudo -u zabbix sudo /usr/sbin/asterisk -rvvvvvx 'fax show stats' | grep 'Transmit Attempts' | awk '{print $NF}'`
+zsend fax.receive `sudo -u zabbix sudo /usr/sbin/asterisk -rvvvvvx 'fax show stats' | grep 'Receive Attempts' | awk '{print $NF}'`
+zsend fax.done `sudo -u zabbix sudo /usr/sbin/asterisk -rvvvvvx 'fax show stats' | grep 'Completed' | awk '{print $NF}'`
+zsend fax.fail `sudo -u zabbix sudo /usr/sbin/asterisk -rvvvvvx 'fax show stats' | grep 'Failed' | awk '{print $NF}'`
 
 
 
 # Parked Calls
 
-$ZBX_SENDER -c $ZBX_CONF -k ast.parkedcalls -o `asterisk -rvvvvvx 'parkedcalls show' | grep 'parked calls in total' | awk '{print $1}'`
+zsend ast.parkedcalls `sudo -u zabbix sudo /usr/sbin/asterisk -rvvvvvx 'parkedcalls show' | grep 'parked calls in total' | awk '{print $1}'`
 
 

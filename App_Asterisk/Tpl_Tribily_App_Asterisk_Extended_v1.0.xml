@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zabbix_export version="1.0" date="15.09.11" time="09.22">
+<zabbix_export version="1.0" date="21.09.11" time="20.31">
   <hosts>
     <host name="Tpl_Tribily_App_Asterisk_Extended_v1.0">
       <proxy_hostid>0</proxy_hostid>
@@ -47,7 +47,7 @@ This indicates there's a problem with asterisk.</comments>
           <delay>300</delay>
           <history>60</history>
           <trends>365</trends>
-          <status>0</status>
+          <status>1</status>
           <data_type>0</data_type>
           <units></units>
           <multiplier>0</multiplier>

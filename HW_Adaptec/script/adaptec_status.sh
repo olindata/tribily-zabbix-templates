@@ -8,12 +8,12 @@ ARCBIN=`which arcconf`
 ZBX_SENDER=`which zabbix_sender`
 ZBX_CONF="/etc/zabbix/zabbix_agentd.conf"
 
-function zsend { 
-	$ZBX_SENDER -c $ZBX_CONF -k $1 -o $2
+function zsend {
+        $ZBX_SENDER -c $ZBX_CONF -k $1 -o $2
 }
 
 
-# Controller Info 
+# Controller Info
 zsend adpt.conmod `arcconf getconfig 1 | grep "Controller Model" | cut -f2 -d":" | sed -e 's/^ //' | sed -e 's/ /_/g'`
 
 # Temperature
@@ -30,7 +30,7 @@ zsend adpt.ldevdeg `arcconf getconfig 1 | grep "Logical devices\/Failed\/Degrade
 
 # Controller Version Information
 zsend adpt.bios `arcconf getconfig 1 | grep BIOS | cut -f2 -d":" | sed -e 's/^ //' | sed -e 's/ /_/g'`
-zsend adpt.firm `arcconf getconfig 1 | grep Firmware | cut -f2 -d":" | sed -e 's/^ //' | sed -e 's/ /_/g' | awk 'NR==3'`
+zsend adpt.firm `arcconf getconfig 1 | grep Firmware | cut -f2 -d":" | sed -e 's/^ //' | sed -e 's/ /_/g' | awk 'NR==1'`
 zsend adpt.driver `arcconf getconfig 1 | grep Driver | cut -f2 -d":" | sed -e 's/^ //' | sed -e 's/ /_/g'`
 zsend adpt.flash `arcconf getconfig 1 | grep "Boot Flash" | cut -f2 -d":" | sed -e 's/^ //' | sed -e 's/ /_/g'`
 
@@ -51,4 +51,6 @@ zsend adpt.1smart `arcconf getconfig 1 | grep -A18 "Device #0" | grep "S.M.A.R.T
 zsend adpt.2state `arcconf getconfig 1 | grep -A5 "Device #1" | grep State | cut -f2 -d":"`
 zsend adpt.2power `arcconf getconfig 1 | grep -A18 "Device #1" | grep "Power State" | cut -f2 -d":" | head -n1 | sed -e 's/^ //' | sed -e 's/ /_/g'`
 zsend adpt.2smart `arcconf getconfig 1 | grep -A18 "Device #1" | grep "S.M.A.R.T. warning" | cut -f2 -d":"`
+
+                                                                                                                                                      54,0-1        Bot
 

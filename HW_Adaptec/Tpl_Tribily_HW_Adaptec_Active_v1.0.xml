@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zabbix_export version="1.0" date="17.09.11" time="15.52">
+<zabbix_export version="1.0" date="09.12.11" time="15.18">
   <hosts>
     <host name="Tpl_Tribily_HW_Adaptec_Extended_v1.0">
       <proxy_hostid>0</proxy_hostid>
@@ -18,7 +18,126 @@
       <groups>
         <group>Templates</group>
       </groups>
-      <triggers/>
+      <triggers>
+        <trigger>
+          <description>S.M.A.R.T warnings on RAID harddisk-1 on {HOSTNAME}</description>
+          <type>0</type>
+          <expression>{Tpl_Tribily_HW_Adaptec_Extended_v1.0:adpt.1smart.last(0)}&gt;0</expression>
+          <url></url>
+          <status>0</status>
+          <priority>4</priority>
+          <comments>There are one or more S.M.A.R.T. (Self-Monitoring, Analysis and Reporting Technology) errors on first harddisk of your RAID setup. This happens when there is something wrong with the harddisk.</comments>
+        </trigger>
+        <trigger>
+          <description>S.M.A.R.T warnings on RAID harddisk-2 on {HOSTNAME}</description>
+          <type>0</type>
+          <expression>{Tpl_Tribily_HW_Adaptec_Extended_v1.0:adpt.2smart.last(0)}&gt;0</expression>
+          <url></url>
+          <status>0</status>
+          <priority>4</priority>
+          <comments>There are one or more S.M.A.R.T. (Self-Monitoring, Analysis and Reporting Technology) errors on second harddisk of your RAID setup. This happens when there is something wrong with the harddisk.</comments>
+        </trigger>
+        <trigger>
+          <description>Battery state of RAID controller on {HOSTNAME} has changed</description>
+          <type>0</type>
+          <expression>{Tpl_Tribily_HW_Adaptec_Extended_v1.0:adpt.battery.diff(0)}&gt;0</expression>
+          <url></url>
+          <status>0</status>
+          <priority>1</priority>
+          <comments>There is a change in state of battery sensor on RAID Controller.&#13;
+This either means a battery was installed or removed.</comments>
+        </trigger>
+        <trigger>
+          <description>BIOS version of RAID controller on {HOSTNAME} has changed</description>
+          <type>0</type>
+          <expression>{Tpl_Tribily_HW_Adaptec_Extended_v1.0:adpt.bios.diff(0)}&gt;0</expression>
+          <url></url>
+          <status>0</status>
+          <priority>1</priority>
+          <comments>There is a change in version number on BIOS of RAID controller. This could happen if BIOS was updated.</comments>
+        </trigger>
+        <trigger>
+          <description>RAID controller model on {HOSTNAME} has changed</description>
+          <type>0</type>
+          <expression>{Tpl_Tribily_HW_Adaptec_Extended_v1.0:adpt.conmod.diff(0)}&gt;0</expression>
+          <url></url>
+          <status>0</status>
+          <priority>3</priority>
+          <comments>There is a change in RAID controller model of your server. This could happen if the RAID controller hardware was replaced/RMA'd on your server.</comments>
+        </trigger>
+        <trigger>
+          <description>Driver version on RAID controller on {HOSTNAME} has changed</description>
+          <type>0</type>
+          <expression>{Tpl_Tribily_HW_Adaptec_Extended_v1.0:adpt.driver.last(0)}&gt;0</expression>
+          <url></url>
+          <status>0</status>
+          <priority>1</priority>
+          <comments>There is a change in version number of drivers installed on RAID controller. This could happen if drivers were updated.</comments>
+        </trigger>
+        <trigger>
+          <description>Firmware of RAID controller on {HOSTNAME} has changed</description>
+          <type>0</type>
+          <expression>{Tpl_Tribily_HW_Adaptec_Extended_v1.0:adpt.firm.diff(0)}&gt;0</expression>
+          <url></url>
+          <status>0</status>
+          <priority>1</priority>
+          <comments>There is a change in firmware of RAID controller. This could happen if firmware was updated or RAID controller was replaced.</comments>
+        </trigger>
+        <trigger>
+          <description>Boot Flash version of RAID controller on {HOSTNAME} has changed</description>
+          <type>0</type>
+          <expression>{Tpl_Tribily_HW_Adaptec_Extended_v1.0:adpt.flash.diff(0)}&gt;0</expression>
+          <url></url>
+          <status>0</status>
+          <priority>1</priority>
+          <comments>There is a change in version number of boot flash on RAID controller. The most common reason for this is a firmware update.</comments>
+        </trigger>
+        <trigger>
+          <description>Degraded Logical devices in RAID on {HOSTNAME}</description>
+          <type>0</type>
+          <expression>{Tpl_Tribily_HW_Adaptec_Extended_v1.0:adpt.ldevdeg.last(0)}&gt;0</expression>
+          <url></url>
+          <status>0</status>
+          <priority>5</priority>
+          <comments>Count on number of degraded logical devices is greater than 0. This means one or more of your logical devices in your RAID setup has degraded.</comments>
+        </trigger>
+        <trigger>
+          <description>Failed Logical devices in RAID on {HOSTNAME}</description>
+          <type>0</type>
+          <expression>{Tpl_Tribily_HW_Adaptec_Extended_v1.0:adpt.ldevfail.last(0)}&gt;0</expression>
+          <url></url>
+          <status>0</status>
+          <priority>5</priority>
+          <comments>Count on number of failed logical devices is greater than 0. This means one or more of your logical devices in your RAID setup has been marked failed.</comments>
+        </trigger>
+        <trigger>
+          <description>Available Logical Devices in RAID on {HOSTNAME} has changed</description>
+          <type>0</type>
+          <expression>{Tpl_Tribily_HW_Adaptec_Extended_v1.0:adpt.ldevon.diff(0)}&gt;0</expression>
+          <url></url>
+          <status>0</status>
+          <priority>1</priority>
+          <comments>The count of number of Logical devices on the server has changed. This means either one or more existing logical devices were removed or added.</comments>
+        </trigger>
+        <trigger>
+          <description>RAID level on {HOSTNAME} has changed</description>
+          <type>0</type>
+          <expression>{Tpl_Tribily_HW_Adaptec_Extended_v1.0:adpt.raidlevel.diff(0)}&gt;0</expression>
+          <url></url>
+          <status>0</status>
+          <priority>3</priority>
+          <comments>There is a change in RAID level of your server. This could happen if the RAID was re-done to use a different level of redundancy.</comments>
+        </trigger>
+        <trigger>
+          <description>Change in RAID capacity on {HOSTNAME}</description>
+          <type>0</type>
+          <expression>{Tpl_Tribily_HW_Adaptec_Extended_v1.0:adpt.raidsize.diff(0)}&gt;0</expression>
+          <url></url>
+          <status>0</status>
+          <priority>4</priority>
+          <comments>There is a change in RAID capacity of your server. This could happen if RAID level was changed or something is wrong with RAID controller/disks.</comments>
+        </trigger>
+      </triggers>
       <items>
         <item type="7" key="adpt.1power" value_type="4">
           <description>HardDisk-1 Power State</description>

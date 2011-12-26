@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zabbix_export version="1.0" date="09.12.11" time="15.18">
+<zabbix_export version="1.0" date="26.12.11" time="13.33">
   <hosts>
     <host name="Tpl_Tribily_HW_Adaptec_Extended_v1.0">
       <proxy_hostid>0</proxy_hostid>

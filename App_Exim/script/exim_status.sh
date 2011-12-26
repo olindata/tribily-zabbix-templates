@@ -16,7 +16,7 @@ function zsend {
   $ZBX_SENDER -c $ZABBIX_CONF -k $1 -o $2
 }
 
-/usr/sbin/logtail -f$EXIMLOG -o$DAT1 | $EXIMSTATS -t0 /var/log/exim4/mainlog > $DAT2 
+/usr/sbin/logtail -f$EXIMLOG -o$DAT1 | $EXIMSTATS -t0 -nvr /var/log/exim4/mainlog > $DAT2 
 echo "Errors 0" >> $DAT2
 
 zsend exreceived `grep -m 1 Received $DAT2|awk '{print $3}'`

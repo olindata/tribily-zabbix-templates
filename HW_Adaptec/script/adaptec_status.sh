@@ -52,5 +52,4 @@ zsend adpt.2state `$ARCBIN getconfig 1 | grep -A5 "Device #1" | grep State | cut
 zsend adpt.2power `$ARCBIN getconfig 1 | grep -A18 "Device #1" | grep "Power State" | cut -f2 -d":" | head -n1 | sed -e 's/^ //' | sed -e 's/ /_/g'`
 zsend adpt.2smart `$ARCBIN getconfig 1 | grep -A18 "Device #1" | grep "S.M.A.R.T. warning" | cut -f2 -d":"`
 
-                                                                                                                                                      54,0-1        Bot
 

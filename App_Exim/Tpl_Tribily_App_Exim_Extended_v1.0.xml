@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zabbix_export version="1.0" date="15.09.11" time="09.21">
+<zabbix_export version="1.0" date="26.12.11" time="13.38">
   <hosts>
     <host name="Tpl_Tribily_App_Exim_Extended_v1.0">
       <proxy_hostid>0</proxy_hostid>
@@ -38,7 +38,7 @@
           <trends>365</trends>
           <status>0</status>
           <data_type>0</data_type>
-          <units></units>
+          <units>B</units>
           <multiplier>0</multiplier>
           <delta>0</delta>
           <formula>0</formula>
@@ -71,7 +71,7 @@
           <trends>365</trends>
           <status>0</status>
           <data_type>0</data_type>
-          <units></units>
+          <units>B</units>
           <multiplier>0</multiplier>
           <delta>0</delta>
           <formula>0</formula>
@@ -231,13 +231,13 @@
       </items>
       <templates/>
       <graphs>
-        <graph name="Mail_Traffic_Size" width="900" height="200">
-          <ymin_type>0</ymin_type>
+        <graph name="Exim Traffic Size" width="900" height="200">
+          <ymin_type>1</ymin_type>
           <ymax_type>0</ymax_type>
           <ymin_item_key></ymin_item_key>
           <ymax_item_key></ymax_item_key>
           <show_work_period>0</show_work_period>
-          <show_triggers>0</show_triggers>
+          <show_triggers>1</show_triggers>
           <graphtype>0</graphtype>
           <yaxismin>0.0000</yaxismin>
           <yaxismax>100.0000</yaxismax>
@@ -259,15 +259,15 @@
               <drawtype>2</drawtype>
               <sortorder>1</sortorder>
               <color>0000DD</color>
-              <yaxisside>0</yaxisside>
+              <yaxisside>1</yaxisside>
               <calc_fnc>2</calc_fnc>
               <type>0</type>
               <periods_cnt>5</periods_cnt>
             </graph_element>
           </graph_elements>
         </graph>
-        <graph name="Mail_Success_Statistics" width="900" height="200">
-          <ymin_type>0</ymin_type>
+        <graph name="Exim Statistics" width="900" height="200">
+          <ymin_type>1</ymin_type>
           <ymax_type>0</ymax_type>
           <ymin_item_key></ymin_item_key>
           <ymax_item_key></ymax_item_key>
@@ -294,15 +294,15 @@
               <drawtype>2</drawtype>
               <sortorder>1</sortorder>
               <color>0000EE</color>
-              <yaxisside>0</yaxisside>
+              <yaxisside>1</yaxisside>
               <calc_fnc>2</calc_fnc>
               <type>0</type>
               <periods_cnt>5</periods_cnt>
             </graph_element>
           </graph_elements>
         </graph>
-        <graph name="Mail_Issues_Statistics" width="900" height="200">
-          <ymin_type>0</ymin_type>
+        <graph name="Exim Errors" width="900" height="200">
+          <ymin_type>1</ymin_type>
           <ymax_type>0</ymax_type>
           <ymin_item_key></ymin_item_key>
           <ymax_item_key></ymax_item_key>

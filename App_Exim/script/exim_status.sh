@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 # Script to fetch exim statuses for tribily monitoring systems 
 # Author: krish@tribily.com
 # License: GPLv2

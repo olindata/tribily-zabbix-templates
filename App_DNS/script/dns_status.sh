@@ -4,16 +4,7 @@
 # Organization: Tribily
 # Version: 1.1
 #
-VERSION="1.1"
-
-# Variables
-ZBX_SENDER=`which zabbix_sender`
-ZBX_CONF="/etc/zabbix/zabbix_agentd.conf"
-
-function zsend { 
-  $ZBX_SENDER -c $ZBX_CONF -k $1 -o $2
-}
-
+VERSION=1.1
 
 LOOKUP=`which host`
 WAIT_TIME="5"
@@ -21,7 +12,7 @@ EXITSUM=0
 
 if  test -z "$1" 
 then
-	zsend tribily.dns.ver `echo ${VERSION}`
+	echo ${VERSION}	
 	exit;
 else
 	DNS_SERVER=$1

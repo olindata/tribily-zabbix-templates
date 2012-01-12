@@ -4,7 +4,7 @@
 # Organization: Tribily
 # Version: 1.1
 #
-VERSION=1.1
+VERSION="1.1"
 
 # Variables
 ZBX_SENDER=`which zabbix_sender`
@@ -21,7 +21,7 @@ EXITSUM=0
 
 if  test -z "$1" 
 then
-	echo "ERROR: No DNS Server Specified."
+	zsend tribily.dns.ver `echo ${VERSION}`
 	exit;
 else
 	DNS_SERVER=$1
@@ -75,5 +75,4 @@ fi
 #fi
 
 
-zsend tribily.dns.ver `echo ${VERSION}`
 

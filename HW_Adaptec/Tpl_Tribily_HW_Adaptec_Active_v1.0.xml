@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zabbix_export version="1.0" date="26.12.11" time="13.33">
+<zabbix_export version="1.0" date="18.01.12" time="13.03">
   <hosts>
     <host name="Tpl_Tribily_HW_Adaptec_Extended_v1.0">
       <proxy_hostid>0</proxy_hostid>
@@ -733,9 +733,69 @@ This either means a battery was installed or removed.</comments>
             <application>Adaptec RAID</application>
           </applications>
         </item>
+        <item type="7" key="adpt.tribily.ver" value_type="0">
+          <description>Version number Tribily Adaptec Monitoring Script</description>
+          <ipmi_sensor></ipmi_sensor>
+          <delay>300</delay>
+          <history>60</history>
+          <trends>365</trends>
+          <status>0</status>
+          <data_type>0</data_type>
+          <units></units>
+          <multiplier>0</multiplier>
+          <delta>0</delta>
+          <formula>0</formula>
+          <lastlogsize>0</lastlogsize>
+          <logtimefmt></logtimefmt>
+          <delay_flex></delay_flex>
+          <authtype>0</authtype>
+          <username></username>
+          <password></password>
+          <publickey></publickey>
+          <privatekey></privatekey>
+          <params></params>
+          <trapper_hosts>localhost</trapper_hosts>
+          <snmp_community></snmp_community>
+          <snmp_oid></snmp_oid>
+          <snmp_port>161</snmp_port>
+          <snmpv3_securityname></snmpv3_securityname>
+          <snmpv3_securitylevel>0</snmpv3_securitylevel>
+          <snmpv3_authpassphrase></snmpv3_authpassphrase>
+          <snmpv3_privpassphrase></snmpv3_privpassphrase>
+          <applications>
+            <application>Adaptec RAID</application>
+          </applications>
+        </item>
       </items>
       <templates/>
-      <graphs/>
+      <graphs>
+        <graph name="Adaptec Temperature" width="900" height="200">
+          <ymin_type>1</ymin_type>
+          <ymax_type>0</ymax_type>
+          <ymin_item_key></ymin_item_key>
+          <ymax_item_key></ymax_item_key>
+          <show_work_period>0</show_work_period>
+          <show_triggers>1</show_triggers>
+          <graphtype>0</graphtype>
+          <yaxismin>0.0000</yaxismin>
+          <yaxismax>100.0000</yaxismax>
+          <show_legend>0</show_legend>
+          <show_3d>0</show_3d>
+          <percent_left>0.0000</percent_left>
+          <percent_right>0.0000</percent_right>
+          <graph_elements>
+            <graph_element item="Tpl_Tribily_HW_Adaptec_Extended_v1.0:adpt.temp">
+              <drawtype>0</drawtype>
+              <sortorder>0</sortorder>
+              <color>009900</color>
+              <yaxisside>0</yaxisside>
+              <calc_fnc>2</calc_fnc>
+              <type>0</type>
+              <periods_cnt>5</periods_cnt>
+            </graph_element>
+          </graph_elements>
+        </graph>
+      </graphs>
       <macros/>
     </host>
   </hosts>

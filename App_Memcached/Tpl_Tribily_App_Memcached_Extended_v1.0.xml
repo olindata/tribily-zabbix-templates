@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zabbix_export version="1.0" date="07.04.12" time="18.04">
+<zabbix_export version="1.0" date="07.04.12" time="20.10">
   <hosts>
     <host name="Tpl_Tribily_App_Memcached_Extended_v1.0">
       <proxy_hostid>0</proxy_hostid>
@@ -32,10 +32,10 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
         <trigger>
           <description>Memcached Service is Down on {HOSTNAME}</description>
           <type>0</type>
-          <expression>{Tpl_Tribily_App_Memcached_Extended_v1.0:net.tcp.service[tcp,,11211].last(0)}&lt;1</expression>
+          <expression>{Tpl_Tribily_App_Memcached_Extended_v1.0:net.tcp.service[tcp,,11211].last(0)}#1</expression>
           <url></url>
           <status>0</status>
-          <priority>0</priority>
+          <priority>4</priority>
           <comments>No Service is listening on port 11211. This indicates that your Memcached server might have crashed or has been shutdown.</comments>
         </trigger>
       </triggers>

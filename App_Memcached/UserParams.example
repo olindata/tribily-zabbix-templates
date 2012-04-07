@@ -1,0 +1,25 @@
+# For Tribily Memcached Monitoring
+# Add these to your Agent UserParams
+#
+UserParameter=memchd.pid,/opt/tribily/bin/memcached_status.sh memchd.pid
+UserParameter=memchd.uptime,/opt/tribily/bin/memcached_status.sh memchd.uptime
+UserParameter=memchd.version,/opt/tribily/bin/memcached_status.sh memchd.version
+UserParameter=memchd.rusage_user,/opt/tribily/bin/memcached_status.sh memchd.rusage_user
+UserParameter=memchd.rusage_system,/opt/tribily/bin/memcached_status.sh memchd.rusage_system
+UserParameter=memchd.curr_conn,/opt/tribily/bin/memcached_status.sh memchd.curr_conn
+UserParameter=memchd.total_conn,/opt/tribily/bin/memcached_status.sh memchd.total_conn
+UserParameter=memchd.conn_struct,/opt/tribily/bin/memcached_status.sh memchd.conn_struct
+UserParameter=memchd.bytes_read,/opt/tribily/bin/memcached_status.sh memchd.bytes_read
+UserParameter=memchd.bytes_written,/opt/tribily/bin/memcached_status.sh memchd.bytes_written
+UserParameter=memchd.limit_maxbytes,/opt/tribily/bin/memcached_status.sh memchd.limit_maxbytes
+UserParameter=memchd.bytes,/opt/tribily/bin/memcached_status.sh memchd.bytes
+UserParameter=memchd.curr_items,/opt/tribily/bin/memcached_status.sh memchd.curr_items
+UserParameter=memchd.total_items,/opt/tribily/bin/memcached_status.sh memchd.total_items
+UserParameter=memchd.evictions,/opt/tribily/bin/memcached_status.sh memchd.evictions
+UserParameter=memchd.get_misses,/opt/tribily/bin/memcached_status.sh memchd.get_misses
+UserParameter=memchd.get_hits,/opt/tribily/bin/memcached_status.sh memchd.get_hits
+UserParameter=memchd.cmd_get,/opt/tribily/bin/memcached_status.sh memchd.cmd_get
+UserParameter=memchd.cmd_set,/opt/tribily/bin/memcached_status.sh memchd.cmd_set
+UserParameter=memchd.threads,/opt/tribily/bin/memcached_status.sh memchd.threads
+UserParameter=memchd.tribily.ver,/opt/tribily/bin/memcached_status.sh memchd.tribily.ver
+

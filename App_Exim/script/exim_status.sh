@@ -11,6 +11,7 @@ DAT2=$(mktemp)
 EXIMSTATS=/usr/sbin/eximstats
 ZABBIX_CONF=/etc/zabbix/zabbix_agentd.conf
 ZBX_SENDER=`which zabbix_sender`
+VERSION="1.0"
 
 function zsend { 
   $ZBX_SENDER -c $ZABBIX_CONF -k $1 -o $2
@@ -24,5 +25,6 @@ zsend exdelivered `grep -m 1 Delivered $DAT2|awk '{print $3}'`
 zsend exerrors `grep -m 1 Errors $DAT2|awk '{print $3}'`
 zsend exbytesreceived `grep -m 1 "Received" $DAT2|awk '{print $2}'`
 zsend exbytesdelivered `grep -m 1 "Delivered" $DAT2|awk '{print $2}'`
+zsend extribilyver `echo ${VERSION}`
 
 rm $DAT2

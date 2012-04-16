@@ -137,6 +137,15 @@ function uptime_cur {
 	fi
 	}
 
+# Version Information
+# Donot edit this section ever
+function tribily_ver {
+	VERSION="1.0"
+	echo ${VERSION}
+}
+	
+
+
 # Run the requested function
 $1
 

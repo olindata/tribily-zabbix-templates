@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zabbix_export version="1.0" date="16.04.12" time="14.35">
+<zabbix_export version="1.0" date="17.04.12" time="15.42">
   <hosts>
     <host name="Tpl_Tribily_App_Asterisk_Extended_v1.0">
       <proxy_hostid>0</proxy_hostid>
@@ -30,13 +30,13 @@
 Please update your script from http://tribily.com/downloads/scripts/asterisk_status.sh</comments>
         </trigger>
         <trigger>
-          <description>No New data received from Asterisk Server on {HOSTNAME} in last 3 minutes</description>
+          <description>No New data received from Asterisk Server on {HOSTNAME} in last 10 minutes</description>
           <type>0</type>
-          <expression>{Tpl_Tribily_App_Asterisk_Extended_v1.0:ast.tribily.ver.nodata(180)}=1</expression>
+          <expression>{Tpl_Tribily_App_Asterisk_Extended_v1.0:ast.tribily.ver.nodata(600)}=1</expression>
           <url></url>
           <status>0</status>
           <priority>4</priority>
-          <comments>Monitoring script for Asterisk Server has failed to send data to the server over 3 minutes.&#13;
+          <comments>Monitoring script for Asterisk Server has failed to send data to the server over 10 minutes.&#13;
 This means either the script was disabled or deleted or something is wrong with your server.</comments>
         </trigger>
         <trigger>

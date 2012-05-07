@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zabbix_export version="1.0" date="07.04.12" time="20.10">
+<zabbix_export version="1.0" date="07.05.12" time="10.50">
   <hosts>
     <host name="Tpl_Tribily_App_Memcached_Extended_v1.0">
       <proxy_hostid>0</proxy_hostid>
@@ -27,6 +27,18 @@
           <status>0</status>
           <priority>1</priority>
           <comments>There is a version mismatch between latest Tribily Memcached monitoring script and the installed script on your server. This means there could be improvements or new features in the new script.&#13;
+Please update your script from http://tribily.com/downloads/scripts/memcached_status.sh</comments>
+        </trigger>
+        <trigger>
+          <description>No New data received from Memcached Server on {HOSTNAME} in last 5 minutes</description>
+          <type>0</type>
+          <expression>{Tpl_Tribily_App_Memcached_Extended_v1.0:memchd.tribily.ver.nodata(300)}=1</expression>
+          <url></url>
+          <status>0</status>
+          <priority>4</priority>
+          <comments>Monitoring script for Memcached Server has failed to send data to the server over 5 minutes.&#13;
+This means either the script was disabled/outdated or deleted or something is wrong with your server.&#13;
+&#13;
 Please update your script from http://tribily.com/downloads/scripts/memcached_status.sh</comments>
         </trigger>
         <trigger>
@@ -69,7 +81,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -103,7 +114,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -137,7 +147,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -171,7 +180,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -205,7 +213,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -239,7 +246,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -273,7 +279,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -307,7 +312,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -341,7 +345,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -375,7 +378,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -409,7 +411,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -443,7 +444,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -477,7 +477,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -511,7 +510,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -545,7 +543,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -579,7 +576,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -613,7 +609,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -647,7 +642,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -655,7 +649,7 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
         <item type="7" key="memchd.tribily.ver" value_type="0">
           <description>Tribily Memcached Monitoring Script Version</description>
           <ipmi_sensor></ipmi_sensor>
-          <delay>300</delay>
+          <delay>120</delay>
           <history>60</history>
           <trends>365</trends>
           <status>0</status>
@@ -681,7 +675,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -715,7 +708,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -749,7 +741,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -783,7 +774,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>
@@ -817,7 +807,6 @@ Please update your script from http://tribily.com/downloads/scripts/memcached_st
           <snmpv3_securitylevel>0</snmpv3_securitylevel>
           <snmpv3_authpassphrase></snmpv3_authpassphrase>
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
-          <valuemapid>0</valuemapid>
           <applications>
             <application>Memcached</application>
           </applications>

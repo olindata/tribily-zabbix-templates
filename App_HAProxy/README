@@ -33,6 +33,7 @@ UserParameter=haproxy.warn_redis,/opt/tribily/bin/haproxy_status.sh warn_redis
 UserParameter=haproxy.down_cur,/opt/tribily/bin/haproxy_status.sh down_cur
 UserParameter=haproxy.uptime_cur,/opt/tribily/bin/haproxy_status.sh uptime_cur 
 UserParameter=haproxy.down_tot,/opt/tribily/bin/haproxy_status.sh down_tot 
+UserParameter=haproxy.tribily_ver,/opt/tribily/bin/haproxy_status.sh tribily_ver
 
 
 
